@@ -1,7 +1,7 @@
 resource "aws_instance" "backend" {
   count = 3
   ami = "ami-09c813fb71547fc4f"
-  instance_type = t2.micro
+  instance_type = "t3.micro"
   vpc_security_group_ids = [aws_security_group.allow-ssh-terraform.id]
   tags = {
     Name = var.instance_names[count.index]

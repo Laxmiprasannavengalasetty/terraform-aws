@@ -3,9 +3,16 @@ resource "aws_instance" "backend" {
   ami = "ami-09c813fb71547fc4f"
   instance_type = "t3.micro"
   vpc_security_group_ids = [aws_security_group.allow-ssh-terraform.id]
-  tags = {
-    Name = var.instance_names[count.index]
-  }
+#   tags = {
+#     Name = var.instance_names[count.index]
+#   }
+tags = merge(
+    var.common_tags,
+    {
+         Name = var.instance_names[count.index] #map
+    }
+)
+
 }
 resource "aws_security_group" "allow-ssh-terraform" {
     name = "allow-ssh-tf"
@@ -30,9 +37,12 @@ ingress {
     ipv6_cidr_blocks = ["::/0"]
   }
 
-tags = {
-    Name = "allow-ssh-terraform"
-  }
+tags = merge(
+    var.common_tags,
+    {
+         Name = "allow_ssh_terraform"
+    }
+)
 }
 
 

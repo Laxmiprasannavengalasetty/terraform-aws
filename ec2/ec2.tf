@@ -1,7 +1,7 @@
 resource "aws_security_group" "allow-ssh-terraform" {
     name = "allow-ssh-tf"
     description= " allow port no. 22 for ssh access"
-   
+    vpc_security_group_ids = [aws_security_group.allow-ssh-terraform.id]
 
 # outgoing traffic usally we allow everything in egress not require any permission to go out
 egress {

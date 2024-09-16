@@ -5,7 +5,7 @@ terraform {
       version = "~> 5.6"
     }
   }
-      backend "s3"{
+      backend "s3" {
       bucket = "terraform-locking-s3"   # s3 bucket name
       key    = "remote-state"    #s3 key 
       region = "us-east-1"

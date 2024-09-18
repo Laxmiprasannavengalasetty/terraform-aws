@@ -68,3 +68,43 @@ terraform plan
 ```
 terraform apply
 ```
+
+* To destroy the terraform manages infrastructure.
+```
+terraform destroy  (or) terraform destroy -auto-approve
+
+```
+
+* Terraform format the configuration file to a canonical format and style.
+
+```
+terraform fmt
+```
+
+* To provide human-readable output from a state or plan file.
+
+```
+terraform show
+```
+* Terraform workspace command to create new workspace.
+
+```
+terraform workspace new
+```
+
+* To list the workspaces in terraform.
+
+```
+terraform workspace list
+```
+* To delete an existing terraform workspace.
+
+```
+terraform workspace delete
+```
+
+*To output the current workspace.
+
+```
+terraform workspace show
+```
